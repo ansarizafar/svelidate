@@ -1,0 +1,40 @@
+<script>
+	import validator from "./check";
+	//import {email, required} from './check'
+	const validate = validator();
+	let user = { email: "Zafar Ansari", age: 47 };
+	
+	//	const form1 = validate(user, { email: "required|email", age: "required" });
+	const form1 = validate(user)
+	  .schema({ email: "required|email", age: "required" })
+	  //.messages({})
+		.test();
+		
+	
+	$: {
+	console.log($form1);
+	console.log($form1.email);
+	
+	}
+</script>
+
+
+<input bind:value={user.email} placeholder="Enter your email">
+
+	{#if !$form1.email.isValid}
+<div class="error"> {$form1.email.message}</div>
+{/if}
+
+<input  bind:value={user.age} placeholder="Enter your age">
+	
+	{#if !$form1.age.isValid}
+<div class="error"> {$form1.age.message}</div>
+{/if}
+
+
+
+<style>
+	.error {
+	  color: red;
+	}
+</style>

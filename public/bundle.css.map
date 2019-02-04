@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "../src/App.html"
+  ],
+  "sourcesContent": [
+    "<script>\n\timport validator from \"./check\";\n\t//import {email, required} from './check'\n\tconst validate = validator();\n\tlet user = { email: \"Zafar Ansari\", age: 47 };\n\t\n\t//\tconst form1 = validate(user, { email: \"required|email\", age: \"required\" });\n\tconst form1 = validate(user)\n\t  .schema({ email: \"required|email\", age: \"required\" })\n\t  //.messages({})\n\t\t.test();\n\t\t\n\t\n\t$: {\n\tconsole.log($form1);\n\tconsole.log($form1.email);\n\t\n\t}\n</script>\n\n\n<input bind:value={user.email} placeholder=\"Enter your email\">\n\n\t{#if !$form1.email.isValid}\n<div class=\"error\"> {$form1.email.message}</div>\n{/if}\n\n<input  bind:value={user.age} placeholder=\"Enter your age\">\n\t\n\t{#if !$form1.age.isValid}\n<div class=\"error\"> {$form1.age.message}</div>\n{/if}\n\n\n\n<style>\n\t.error {\n\t  color: red;\n\t}\n</style>"
+  ],
+  "names": [],
+  "mappings": "AAoCC,MAAM,eAAC,CAAC,AACN,KAAK,CAAE,GAAG,AACZ,CAAC"
+}
