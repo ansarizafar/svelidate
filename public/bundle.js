@@ -635,7 +635,7 @@ var app = (function () {
 
 	const file = "src/App.html";
 
-	// (24:1) {#if !$form1.email.isValid}
+	// (22:1) {#if !$form1.email.isValid}
 	function create_if_block_1(ctx) {
 		var div, text_value = ctx.$form1.email.message, text;
 
@@ -644,7 +644,7 @@ var app = (function () {
 				div = createElement("div");
 				text = createText(text_value);
 				div.className = "error svelte-12zgbi7";
-				addLoc(div, file, 24, 0, 535);
+				addLoc(div, file, 22, 0, 454);
 			},
 
 			m: function mount(target, anchor) {
@@ -666,7 +666,7 @@ var app = (function () {
 		};
 	}
 
-	// (30:1) {#if !$form1.age.isValid}
+	// (28:1) {#if !$form1.age.isValid}
 	function create_if_block(ctx) {
 		var div, text_value = ctx.$form1.age.message, text;
 
@@ -675,7 +675,7 @@ var app = (function () {
 				div = createElement("div");
 				text = createText(text_value);
 				div.className = "error svelte-12zgbi7";
-				addLoc(div, file, 30, 0, 680);
+				addLoc(div, file, 28, 0, 599);
 			},
 
 			m: function mount(target, anchor) {
@@ -715,9 +715,9 @@ var app = (function () {
 				if (if_block1) if_block1.c();
 				if_block1_anchor = createComment();
 				input0.placeholder = "Enter your email";
-				addLoc(input0, file, 21, 0, 442);
+				addLoc(input0, file, 19, 0, 361);
 				input1.placeholder = "Enter your age";
-				addLoc(input1, file, 27, 0, 591);
+				addLoc(input1, file, 25, 0, 510);
 
 				dispose = [
 					addListener(input0, "input", ctx.input0_input_handler),
@@ -810,12 +810,11 @@ var app = (function () {
 		//import {email, required} from './check'
 		const validate = check();
 		let user = { email: "Zafar Ansari", age: 47 };
-		
-		//	const form1 = validate(user, { email: "required|email", age: "required" });
+
 		const form1 = validate(user)
 		  .schema({ email: "required|email", age: "required" })
 		  //.messages({})
-			.test();
+		  .test();
 
 		function input0_input_handler() {
 			user.email = this.value;
@@ -833,9 +832,8 @@ var app = (function () {
 
 		$$self.$$.update = ($$dirty = { console: 1, $form1: 1 }) => {
 			if ($$dirty.console || $$dirty.$form1) {
-				console.log($form1);
-				console.log($form1.email);
-				
+				  console.log($form1);
+				  console.log($form1.email);
 				}
 		};
 

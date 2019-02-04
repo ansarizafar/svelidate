@@ -1,20 +1,18 @@
 <script>
 	import validator from "./check";
+
 	//import {email, required} from './check'
 	const validate = validator();
 	let user = { email: "Zafar Ansari", age: 47 };
-	
-	//	const form1 = validate(user, { email: "required|email", age: "required" });
+
 	const form1 = validate(user)
 	  .schema({ email: "required|email", age: "required" })
 	  //.messages({})
-		.test();
-		
-	
+	  .test();
+
 	$: {
-	console.log($form1);
-	console.log($form1.email);
-	
+	  console.log($form1);
+	  console.log($form1.email);
 	}
 </script>
 
